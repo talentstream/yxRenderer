@@ -21,6 +21,12 @@
     <ClInclude Include="draw.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="rasterizer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="triangle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tgaimage.cpp">
@@ -30,6 +36,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="draw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="triangle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rasterizer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
