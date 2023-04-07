@@ -48,7 +48,7 @@ void DrawTriangle(glm::vec2 t0, glm::vec2 t1, glm::vec2 t2, TGAImage& image, TGA
 	float min_y = std::min(std::min(t0.y, t1.y), t2.y);
 	float max_y = std::max(std::max(t0.y, t1.y), t2.y);
 
-	for (int x = min_x; x <= max_x + 1; x++)
+	/*for (int x = min_x; x <= max_x + 1; x++)
 	{
 		for (int y = min_y; y <= max_y + 1; y++)
 		{
@@ -59,7 +59,7 @@ void DrawTriangle(glm::vec2 t0, glm::vec2 t1, glm::vec2 t2, TGAImage& image, TGA
 				continue;
 			image.set(x, y, color);
 		}
-	}
+	}*/
 }
 
 void DrawTriangle(glm::vec3 t0, glm::vec3 t1, glm::vec3 t2, TGAImage& image, TGAColor color, float* zbuffer)
@@ -69,7 +69,7 @@ void DrawTriangle(glm::vec3 t0, glm::vec3 t1, glm::vec3 t2, TGAImage& image, TGA
 	float min_y = std::min(std::min(t0.y, t1.y), t2.y);
 	float max_y = std::max(std::max(t0.y, t1.y), t2.y);
 
-	for (int x = min_x; x <= max_x + 1; x++)
+	/*for (int x = min_x; x <= max_x + 1; x++)
 	{
 		for (int y = min_y; y <= max_y + 1; y++)
 		{
@@ -83,7 +83,7 @@ void DrawTriangle(glm::vec3 t0, glm::vec3 t1, glm::vec3 t2, TGAImage& image, TGA
 				image.set(x, y, color);
 			}
 		}
-	}
+	}*/
 
 }
 bool IsInsideTriangle(float x, float y, glm::vec2 t0, glm::vec2 t1, glm::vec2 t2)

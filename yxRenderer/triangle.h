@@ -3,21 +3,22 @@
 #define RASTERIZER_TRIANGLE_H
 
 #include<glm/glm.hpp>
+#include<Eigen/Dense>
 
 class Triangle
 {
 public:
-	glm::vec3 vertex[3];
-	glm::vec3 color[3];
-	glm::vec2 tex_coords[3];
-	glm::vec3 normal[3];
+	Eigen::Vector3f vertex[3];
+	Eigen::Vector3f color[3];
+	Eigen::Vector2f tex_coords[3];
+	Eigen::Vector3f normal[3];
 
 	Triangle();
 
-	void SetVertex(int index, glm::vec3 vert);
+	void SetVertex(int index, Eigen::Vector3f vert);
 	void SetColor(int index, float r, float g, float b);
 	void SetTexCoords(int index, float u, float v);
-	void SetNormal(int index, glm::vec3 norm);
-	glm::vec3 GetColor() const { return glm::vec3(255.0 * color[0].x, 255.0 * color[0].y, 255.0 * color[0].z); }
+	void SetNormal(int index, Eigen::Vector3f norm);
+	Eigen::Vector3f GetColor() const { return color[0] * 255; }
 };
 #endif // ! RASTERIZER_TRIANGLE_H

@@ -2,6 +2,7 @@
 
 #include "triangle.h"
 
+#include<Eigen/Eigen>
 #include<glm/glm.hpp>
 #include<map>
 #include<vector>
@@ -44,35 +45,35 @@ public:
 	Rasterizer(int w, int h);
 
 
-	pos_buffer_id LoadPositions(const std::vector<glm::vec3>& positions);
-	index_buffer_id LoadIndices(const std::vector<glm::vec3>& indices);
+	pos_buffer_id LoadPositions(const std::vector<Eigen::Vector3f>& positions);
+	index_buffer_id LoadIndices(const std::vector<Eigen::Vector3f>& indices);
 
-	void SetModel(const glm::mat4& m) { model = m; }
-	void SetView(const glm::mat4& v) { view = v; }
-	void SetProjection(const glm::mat4& p) { projection = p; }
+	void SetModel(const Eigen::Matrix4f& m) { model = m; }
+	void SetView(const Eigen::Matrix4f& v) { view = v; }
+	void SetProjection(const Eigen::Matrix4f& p) { projection = p; }
 	
-	void SetPixel(const glm::vec3& point, const glm::vec3& color);
+	void SetPixel(const Eigen::Vector3f& point, const Eigen::Vector3f& color);
 
 	void Draw(pos_buffer_id pos_buffer,index_buffer_id index_buffer, Primitive primitive);
 
 	void Clear(Buffers buffer);
 
-	std::vector<glm::vec3>& GetFrameBuffer() { return frame_buffer; }
+	std::vector<Eigen::Vector3f>& GetFrameBuffer() { return frame_buffer; }
 
 	~Rasterizer(){}
 
 private:
-	void DrawLine(glm::vec3 begin, glm::vec3 end);
+	void DrawLine(Eigen::Vector3f begin, Eigen::Vector3f end);
 	void DrawTriangle(const Triangle& tri);
 private:
-	glm::mat4 model;
-	glm::mat4 view;
-	glm::mat4 projection;
+	Eigen::Matrix4f model;
+	Eigen::Matrix4f view;
+	Eigen::Matrix4f projection;
 
-	std::map<int, std::vector<glm::vec3>> pos_buffer;
-	std::map<int, std::vector<glm::vec3>> index_buffer;
+	std::map<int, std::vector<Eigen::Vector3f>> pos_buffer;
+	std::map<int, std::vector<Eigen::Vector3f>> index_buffer;
 
-	std::vector<glm::vec3> frame_buffer;
+	std::vector<Eigen::Vector3f> frame_buffer;
 	std::vector<float> depth_buffer;
 
 	int GetIndex(int x, int y) { return (x + width * (height - y)); }
