@@ -29,7 +29,8 @@ glm::mat4 GetViewMatrix(glm::vec3 eye_pos)
 		0, 1, 0, -eye_pos.y,
 		0, 0, 1, -eye_pos.z,
 		0, 0, 0, 1);*/
-	glm::mat4 translate(1, 0, 0, 0,
+	glm::mat4 translate(
+		1, 0, 0, 0,
 		0, 1, 0, 0,
 		0, 0, 1, 0,
 		-eye_pos.x, -eye_pos.y, -eye_pos.z, 1);
